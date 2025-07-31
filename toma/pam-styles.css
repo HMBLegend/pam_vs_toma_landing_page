@@ -39,7 +39,7 @@
     
     /* Spacing */
     --container-max-width: 1440px;
-    --section-padding: 4rem 0;
+    --section-padding: 4rem 0; /* SPACING: Section padding top/bottom */
     --border-radius: 0.5rem;
     --border-radius-lg: 1rem;
     --border-radius-xl: 1.5rem;
@@ -66,7 +66,7 @@ body {
 .container {
     max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1rem; /* SPACING: Container horizontal padding */
 }
 
 /* Button Styles */
@@ -74,7 +74,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.5rem; /* SPACING: Button internal padding */
     font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
@@ -224,13 +224,13 @@ body {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    gap: 2rem;
+    gap: 2rem; /* SPACING: Header elements gap */
 }
 
 @media (max-width: 768px) {
     .header .container {
         grid-template-columns: auto 1fr auto;
-        gap: 1rem;
+        gap: 1rem; /* SPACING: Mobile header elements gap */
     }
 }
 
@@ -241,18 +241,18 @@ body {
 
 .logo {
     justify-self: start;
-    margin-left: -0.5rem;
+    margin-left: -0.5rem; /* SPACING: Logo left margin adjustment */
 }
 
 .nav-desktop {
     display: none;
     align-items: center;
-    gap: 2rem;
+    gap: 2rem; /* SPACING: Navigation links gap */
     justify-self: center;
 }
 
 .nav-link {
-    padding: 0.5rem 0;
+    padding: 0.5rem 0; /* SPACING: Navigation link padding */
     font-weight: 500;
     color: var(--gray-900);
     text-decoration: none;
@@ -274,7 +274,7 @@ body {
 .header-buttons {
     display: none;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.5rem; /* SPACING: Header buttons gap */
     justify-self: end;
 }
 
@@ -282,7 +282,7 @@ body {
     display: none;
     background: none;
     border: none;
-    padding: 0.5rem;
+    padding: 0.5rem; /* SPACING: Mobile menu toggle padding */
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: all 0.2s ease;
@@ -426,8 +426,8 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    gap: 0.5rem; /* SPACING: Badge icon gap */
+    padding: 0.5rem 1rem; /* SPACING: Badge internal padding */
     background-color: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 9999px;
@@ -435,7 +435,7 @@ body {
     color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
     width: fit-content;
-    margin: 0 0 2rem 0;
+    margin: 0 0 1rem 0; /* SPACING: Badge bottom margin (to subheading) */
     transition: all 0.2s ease;
     backdrop-filter: blur(10px);
 }
@@ -449,7 +449,7 @@ body {
     font-size: 1.25rem;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.8);
-    margin: 0.1rem 0 0.5rem 0;
+    margin: 0.1rem 0 0.5rem 0; /* SPACING: Subheading margins (top, right, bottom, left) */
     text-align: left;
     letter-spacing: 0.025em;
 }
@@ -465,13 +465,13 @@ body {
     font-weight: 500;
     line-height: 1;
     color: white;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem; /* SPACING: Title bottom margin (to subtitle) */
     text-align: left;
     padding: 0;
 }
 
 .hero-subtitle {
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; /* SPACING: Subtitle bottom margin (to buttons) */
     padding: 0;
 }
 
@@ -488,12 +488,12 @@ body {
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1rem; /* SPACING: Hero buttons gap */
     justify-content: center;
 }
 
 .hero-trust-badge {
-    margin-top: 1.5rem;
+    margin-top: 1.5rem; /* SPACING: Trust badge top margin */
     display: flex;
     justify-content: center;
 }
@@ -501,8 +501,8 @@ body {
 .trust-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
+    gap: 0.5rem; /* SPACING: Trust badge icon gap */
+    padding: 0.75rem 1.25rem; /* SPACING: Trust badge internal padding */
     background: linear-gradient(135deg, rgba(106, 47, 236, 0.1), rgba(106, 188, 248, 0.1));
     border: 1px solid rgba(106, 47, 236, 0.2);
     border-radius: var(--border-radius-lg);
@@ -615,14 +615,22 @@ video::-moz-focus-inner {
 .trust-section {
     padding: 4rem 0;
     background-color: var(--gray-50);
+    position: relative; /* SPACING: Ensure proper positioning */
+    z-index: 1; /* SPACING: Ensure section is above other elements */
+    margin-top: 0; /* SPACING: Remove any negative margins */
 }
 
 .trust-title {
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 3rem;
-    color: var(--gray-900);
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    margin-bottom: 3rem !important;
+    margin-top: 2rem !important; /* SPACING: Add top margin to push header down */
+    padding-top: 1rem !important; /* SPACING: Add top padding for extra space */
+    color: var(--gray-900) !important;
+    display: block !important; /* SPACING: Ensure header is visible */
+    visibility: visible !important; /* SPACING: Ensure header is visible */
+    position: relative !important; /* SPACING: Ensure proper positioning */
 }
 
 .trust-subtitle {
@@ -642,24 +650,38 @@ video::-moz-focus-inner {
 }
 
 .marquee-container-small {
-    height: 120px;
+    height: 150px; /* SPACING: Bigger height for larger logos */
     margin-bottom: 1.5rem;
     padding-left: 1rem;
     display: flex;
     align-items: center;
+    overflow: visible; /* SPACING: Allow overflow on desktop */
 }
 
 /* Static logo bars - no animation */
+/* Desktop logo track styles - single row horizontal layout */
 #marquee-track-1 {
-    animation: none;
-    justify-content: center;
+    animation: none !important;
+    justify-content: center !important;
+    display: flex !important;
+    flex-wrap: nowrap !important; /* SPACING: Keep all logos in one row */
+    gap: 1rem !important; /* SPACING: Smaller gap to bring logos closer together */
+    width: 100% !important;
+    max-width: none !important; /* SPACING: Allow full width */
+    margin: 0 auto !important;
+    overflow: visible !important; /* SPACING: Allow overflow on desktop */
 }
 
 #marquee-track-2 {
-    animation: none;
-    justify-content: center;
-    margin: 0 auto;
-    width: fit-content;
+    animation: none !important;
+    justify-content: center !important;
+    display: flex !important;
+    flex-wrap: nowrap !important; /* SPACING: Keep all logos in one row */
+    gap: 1rem !important; /* SPACING: Smaller gap to bring logos closer together */
+    width: 100% !important;
+    max-width: none !important; /* SPACING: Allow full width */
+    margin: 0 auto !important;
+    overflow: visible !important; /* SPACING: Allow overflow on desktop */
 }
 
 /* Logo bars page load animations */
@@ -788,9 +810,9 @@ video::-moz-focus-inner {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 120px;
-    height: 120px;
-    margin: 0 1rem;
+    width: 140px; /* SPACING: Bigger width for larger logos */
+    height: 140px; /* SPACING: Bigger logo item height */
+    margin: 0; /* SPACING: Remove margin, using gap instead */
     flex-shrink: 0;
     transition: all 0.4s ease;
     opacity: 1;
@@ -807,11 +829,13 @@ video::-moz-focus-inner {
 }
 
 .logo-item img {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 120px; /* SPACING: Bigger image size for larger logos */
+    max-height: 120px; /* SPACING: Bigger image size for larger logos */
     object-fit: contain;
     transition: all 0.4s ease;
 }
+
+/* Original horizontal layout - no grid positioning needed */
 
 /* Staggered animation for logo items */
 .marquee-track.panel-switch .logo-item:nth-child(1) { animation-delay: 0ms; }
@@ -932,34 +956,36 @@ video::-moz-focus-inner {
     animation: panelSlideIn 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Mobile-specific logo bars with multi-row layout */
+/* Mobile-specific logo bars with 3-per-row grid layout */
 @media (max-width: 768px) {
     .marquee-track {
         animation: none !important;
-        gap: 0;
-        flex-wrap: wrap;
-        overflow: visible;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* SPACING: 3 logos per row on mobile */
+        gap: 0.125rem; /* SPACING: Very small horizontal gap for mobile */
+        overflow: hidden; /* SPACING: Prevent scrolling */
         width: 100%;
         transform: none !important;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        display: flex;
+        max-width: 350px; /* SPACING: Reduced max width for tighter mobile layout */
+        margin: 0 auto;
     }
     
     .marquee-container-small {
         height: auto;
-        min-height: 200px;
+        min-height: 140px; /* SPACING: Increased height for bigger mobile logos */
         margin-bottom: 1rem;
         padding: 1rem 0.5rem;
-        overflow: visible;
+        overflow: hidden; /* SPACING: Prevent scrolling */
         width: 100%;
     }
     
     .logo-item {
-        width: 24%;
-        height: 80px;
+        width: 100%;
+        height: 120px; /* SPACING: Increased mobile logo item height */
         margin: 0;
-        flex: 0 0 24%;
+        flex: none;
         box-sizing: border-box;
         display: flex;
         align-items: center;
@@ -967,8 +993,8 @@ video::-moz-focus-inner {
     }
     
     .logo-item img {
-        max-width: 70px;
-        max-height: 70px;
+        max-width: 100px; /* SPACING: Increased mobile logo image max width */
+        max-height: 100px; /* SPACING: Increased mobile logo image max height */
         object-fit: contain;
     }
     
@@ -3309,6 +3335,36 @@ video::-moz-focus-inner {
 .testimonials-section .container {
     position: relative;
     z-index: 2;
+}
+
+/* Book a Demo CTA Section */
+.book-demo-cta-section {
+    padding: 0rem 0; /* SPACING: Much tighter padding above and below button */
+    text-align: center;
+}
+
+.book-demo-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-demo-btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #6a2fec 0%, #5a26c7 100%) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 8px 25px rgba(106, 47, 236, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.book-demo-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(106, 47, 236, 0.6);
+    background: linear-gradient(135deg, #7c3aed 0%, #6b21a8 100%) !important;
+    color: white !important;
 }
 
 /* Responsive design for wave animation */
