@@ -960,48 +960,70 @@ video::-moz-focus-inner {
 @media (max-width: 768px) {
     .marquee-track {
         animation: none !important;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* SPACING: 3 logos per row on mobile */
-        gap: 0.125rem; /* SPACING: Very small horizontal gap for mobile */
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important; /* SPACING: 3 logos per row on mobile */
+        gap: 1.5rem !important; /* SPACING: Increase gap between logos */
         overflow: hidden; /* SPACING: Prevent scrolling */
-        width: 100%;
+        width: 100% !important;
         transform: none !important;
         justify-content: center;
         align-items: center;
-        max-width: 350px; /* SPACING: Reduced max width for tighter mobile layout */
+        max-width: 100% !important; /* SPACING: Use full width for better distribution */
         margin: 0 auto;
+        flex-wrap: nowrap !important; /* Override flex properties */
     }
     
     .marquee-container-small {
         height: auto;
-        min-height: 140px; /* SPACING: Increased height for bigger mobile logos */
-        margin-bottom: 1rem;
-        padding: 1rem 0.5rem;
+        min-height: auto; /* SPACING: Remove fixed min-height */
+        margin-bottom: 0rem; /* SPACING: Remove bottom margin between sections */
+        padding: 0rem 0.5rem; /* SPACING: Remove top/bottom padding completely */
         overflow: hidden; /* SPACING: Prevent scrolling */
         width: 100%;
     }
     
     .logo-item {
-        width: 100%;
-        height: 120px; /* SPACING: Increased mobile logo item height */
-        margin: 0;
-        flex: none;
+        width: 100% !important;
+        height: 90px !important; /* SPACING: Increase height for bigger logos */
+        margin: 0 !important;
+        flex: none !important;
+        flex-shrink: 0 !important;
         box-sizing: border-box;
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
     }
     
     .logo-item img {
-        max-width: 100px; /* SPACING: Increased mobile logo image max width */
-        max-height: 100px; /* SPACING: Increased mobile logo image max height */
+        max-width: 100px !important; /* SPACING: Increase logo width */
+        max-height: 70px !important; /* SPACING: Increase logo height */
         object-fit: contain;
+        width: auto !important;
+        height: auto !important;
     }
     
-    /* Prevent horizontal scrolling */
+    /* Prevent horizontal scrolling and reduce vertical spacing */
     .trust-section {
         overflow-x: hidden;
         width: 100%;
+        padding: 1rem 0 !important; /* SPACING: Further reduce section padding to 1rem */
+    }
+    
+    /* Reduce spacing for mobile titles */
+    .trust-title {
+        margin-bottom: 0.5rem !important; /* SPACING: Further reduce */
+        margin-top: 0.25rem !important; /* SPACING: Further reduce */
+        padding-top: 0rem !important; /* SPACING: Remove padding */
+    }
+    
+    .trust-subtitle {
+        margin-bottom: 0rem !important; /* SPACING: Remove bottom margin */
+        margin-top: 0rem !important; /* SPACING: Remove top margin */
+    }
+    
+    /* Reduce section divider spacing on mobile */
+    .section-divider {
+        margin: 0 auto 0.25rem auto !important; /* SPACING: Further reduce to 0.25rem */
     }
     
     .trust-section .container {
@@ -1018,11 +1040,182 @@ video::-moz-focus-inner {
     #marquee-track-2 {
         animation: none !important;
         animation-play-state: paused !important;
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        flex-wrap: unset !important;
+        justify-content: unset !important;
     }
     
     /* Override any paused states */
     .marquee-track.paused {
         animation: none !important;
+    }
+    
+    /* Reduce white space above "An Extension of Your Brand Experience" title */
+    .features-section {
+        padding-top: 0rem !important; /* SPACING: Remove all top padding */
+    }
+    
+    .features-title {
+        margin-top: 0rem !important; /* SPACING: Remove any top margin */
+    }
+    
+    /* Remove background from Book a Demo button in comparison section */
+    .book-demo-btn {
+        background: transparent !important;
+        color: var(--gray-900) !important;
+        border: 2px solid var(--gray-300) !important;
+        box-shadow: none !important;
+    }
+    
+    .book-demo-btn:hover {
+        background: var(--gray-100) !important;
+        color: var(--gray-900) !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+    
+    /* Make comparison button match testimonials button styling */
+    .comparison-cta .btn-special {
+        background: linear-gradient(135deg, #6a2fec 0%, #5a26c7 100%) !important;
+        color: var(--white) !important;
+        border: 2px solid transparent !important;
+        box-shadow: 0 8px 25px rgba(106, 47, 236, 0.4) !important;
+    }
+    
+    .comparison-cta .btn-special:hover {
+        background: linear-gradient(135deg, #7c3aed 0%, #6b21a8 100%) !important;
+        color: var(--white) !important;
+        box-shadow: 0 15px 35px rgba(106, 47, 236, 0.6) !important;
+        transform: translateY(-3px) !important;
+    }
+    
+    /* Make all text bigger across the page on mobile */
+    body {
+        font-size: 1.2rem !important; /* Increase base font size */
+    }
+    
+    p {
+        font-size: 1.3rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .feature-description {
+        font-size: 1.4rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    .hero-subtitle,
+    .hero-subtitle p {
+        font-size: 1.4rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .features-subtitle {
+        font-size: 1.4rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .testimonial-text {
+        font-size: 1.3rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    .author-name {
+        font-size: 1.2rem !important;
+    }
+    
+    .author-title {
+        font-size: 1.1rem !important;
+    }
+    
+    .feature-card-description {
+        font-size: 1.3rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .benefit-section-description {
+        font-size: 1.3rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .comparison-subtitle {
+        font-size: 1.3rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* Center feature cards in mobile version */
+    .features-grid {
+        justify-items: center !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    .feature-card {
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+}
+
+/* Global: Reduce spacing between all sections to minimal */
+.hero {
+    padding-bottom: 1rem !important; /* Reduce from default */
+}
+
+.trust-section {
+    padding: 1rem 0 !important; /* Reduce from 4rem */
+}
+
+.comparison-section {
+    padding: 2rem 0 !important; /* Add a little more space for comparison section */
+}
+
+.features-section {
+    padding: 1rem 0 !important; /* Reduce from 3rem */
+}
+
+.key-benefits-section {
+    padding: 1rem 0 !important; /* Reduce from default */
+}
+
+.testimonials-section {
+    padding: 1rem 0 0rem 0 !important; /* Remove bottom padding completely */
+}
+
+.book-demo-cta-section {
+    padding: 0rem 0 !important; /* Remove top padding to bring button even closer */
+}
+
+/* Reduce margins between major elements */
+.comparison-header {
+    margin-top: 1.5rem !important; /* Add a little space above */
+    margin-bottom: 2.5rem !important; /* Add a little bit more space below */
+}
+
+.features-subtitle {
+    margin: 0 auto 1rem !important; /* Reduce from 3rem */
+}
+
+.benefits-header {
+    margin-bottom: 1rem !important; /* Reduce spacing */
+}
+
+/* Desktop-only: Reduce horizontal white space in logo bars */
+@media (min-width: 769px) {
+    .trust-section .container {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        max-width: 1200px !important; /* Reduce max width for tighter layout */
+    }
+    
+    .marquee-container-small {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
 }
 
@@ -4136,6 +4329,14 @@ video::-moz-focus-inner {
     transform: scale(1.05);
 }
 
+/* Fix for bottom right image in green tile being slightly larger */
+.benefit-image-1 .dashboard-images-grid .benefit-dashboard-image:nth-child(4) {
+    max-width: 99%;
+    height: auto;
+    align-self: end;
+    margin-left: 2px;
+}
+
 @media (max-width: 768px) {
     .dashboard-images-grid {
         grid-template-columns: 1fr;
@@ -4146,6 +4347,14 @@ video::-moz-focus-inner {
     .benefit-image-1 .dashboard-images-grid {
         grid-template-columns: 1fr 1fr !important;
         gap: 0.5rem;
+    }
+
+    /* Mobile fix for bottom right image in green tile */
+    .benefit-image-1 .dashboard-images-grid .benefit-dashboard-image:nth-child(4) {
+        max-width: 99%;
+        height: auto;
+        align-self: end;
+        margin-left: 2px;
     }
 
     /* Mobile layout for BDC Integration (benefit-image-3) - keep 1x2 grid */
