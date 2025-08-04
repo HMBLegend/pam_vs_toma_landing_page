@@ -471,7 +471,7 @@ body {
 }
 
 .hero-subtitle {
-    margin-bottom: 2rem; /* SPACING: Subtitle bottom margin (to buttons) */
+    margin-bottom: 0.5rem; /* SPACING: Subtitle bottom margin (to buttons) */
     padding: 0;
 }
 
