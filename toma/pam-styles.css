@@ -3920,7 +3920,7 @@ video::-moz-focus-inner {
     height: 80vh;
     width: 100%;
     position: absolute;
-    top: 200px;
+    top: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3937,18 +3937,22 @@ video::-moz-focus-inner {
 
 .stacking-card:nth-child(1) {
     z-index: 1;
+    top: 150px; /* Card 1 at bottom */
 }
 
 .stacking-card:nth-child(2) {
     z-index: 2;
+    top: 220px; /* Card 2 on top of Card 1 */
 }
 
 .stacking-card:nth-child(3) {
     z-index: 3;
+    top: 290px; /* Card 3 on top of Card 2 */
 }
 
 .stacking-card:nth-child(4) {
     z-index: 4;
+    top: 360px; /* Card 4 on top of all - most visible */
 }
 
 .stacking-card:nth-child(1) .card-inner {
@@ -3997,8 +4001,10 @@ video::-moz-focus-inner {
 .card-text {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
+    padding-top: 0;
+    margin-top: -4rem;
 }
 
 .card-title {
@@ -4025,6 +4031,7 @@ video::-moz-focus-inner {
     display: inline-block;
     backdrop-filter: blur(10px);
     max-width: fit-content;
+    margin-bottom: 1.5rem;
 }
 
 .card-images {
