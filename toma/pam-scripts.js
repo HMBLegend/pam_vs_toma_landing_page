@@ -879,6 +879,29 @@ function initFAQAccordion() {
     });
 }
 
+// Testimonial Cards Navigation
+function scrollTestimonials(direction) {
+    const container = document.querySelector('.testimonial-cards-container');
+    if (!container) return;
+    
+    const cardWidth = container.querySelector('.testimonial-card').offsetWidth;
+    const scrollAmount = cardWidth + 24; // card width + gap
+    
+    if (direction === 'left') {
+        container.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    } else if (direction === 'right') {
+        container.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Sticky stacking cards work purely with CSS position: sticky - no JavaScript needed!
+
 // Console message for developers
 console.log('%cPam AI Website', 'color: #6a2fec; font-size: 20px; font-weight: bold;');
 console.log('%cBuilt with ❤️ for car dealerships everywhere', 'color: #6ABCF8; font-size: 14px;'); 
