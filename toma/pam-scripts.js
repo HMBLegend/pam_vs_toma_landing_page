@@ -900,7 +900,58 @@ function scrollTestimonials(direction) {
     }
 }
 
-// Sticky stacking cards work purely with CSS position: sticky - no JavaScript needed!
+// Stacking Cards Fade-in Animation
+function initStackingCards() {
+    const wrapper = document.querySelector('.stacking-cards-wrapper');
+    const cards = document.querySelectorAll('.stacking-card');
+    
+    if (!wrapper || !cards.length) return;
+    
+    function handleScroll() {
+        const header = document.querySelector('.benefits-title'); // "A Smarter AI for Your Entire Dealership"
+        if (!header) return;
+        
+        const headerRect = header.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        
+        // TRIGGER: Animation starts very early - when "A Smarter AI" title is in upper viewport
+        let triggerProgress = 0;
+        if (headerRect.top <= 500) { // Start when header is 500px from top - very early
+            // Header is in upper part of viewport, calculate progress from there
+            const scrollDistance = Math.abs(headerRect.top - 500);
+            const maxDistance = viewportHeight * 2; // Adjust this to control trigger sensitivity
+            triggerProgress = Math.min(1, scrollDistance / maxDistance);
+        }
+        
+        // SPEED: How quickly cards appear relative to each other once triggered
+        cards.forEach((card, index) => {
+            let cardThreshold;
+            
+            if (index === 0) {
+                // First card trigger stays the same
+                cardThreshold = 0;
+            } else {
+                // Other cards appear slightly slower after first card
+                cardThreshold = index * 0.08; // Slightly slower progression for cards 2, 3, 4
+            }
+            
+            if (triggerProgress >= cardThreshold) {
+                card.classList.add('visible');
+            } else {
+                card.classList.remove('visible');
+            }
+        });
+    }
+    
+    // Initial check
+    handleScroll();
+    
+    // Listen for scroll events
+    window.addEventListener('scroll', handleScroll);
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', initStackingCards);
 
 // Console message for developers
 console.log('%cPam AI Website', 'color: #6a2fec; font-size: 20px; font-weight: bold;');
